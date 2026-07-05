@@ -1,3 +1,8 @@
+import dbAdminWebApp from "../assets/projects/dbadmin-webapp.png";
+import emotionClassifier from "../assets/projects/emotion-classifier.png";
+import threeDBriscola from "../assets/projects/3d-briscola.jpg";
+import myBlogImg from "../assets/projects/my-blog.png";
+
 export const profile = {
   name: "Khalil El Hage Kassem",
   email: "khalil.elhage@mail.polimi.it",
@@ -38,11 +43,13 @@ export const projects = [
     tags: ["Django", "PostgreSQL", "Docker", "Python"],
     github: "https://github.com/Khalil002/My-Blog",
     live: "https://blog.khalilcodes.com",
+    image: myBlogImg,
   },
   {
     title: "DB-Admin-WebApp",
     tags: ["MongoDB", "Express", "React", "Node.js", "Docker"],
     github: "https://github.com/Khalil002/DB-Admin-WebApp",
+    image: dbAdminWebApp,
   },
   {
     title: "Medical-Appointment-MobileApp",
@@ -53,11 +60,13 @@ export const projects = [
     title: "Emotion-Classifier",
     tags: ["Python", "Machine Learning", "Jupyter", "Tkinter"],
     github: "https://github.com/Khalil002/Emotion-Classifier",
+    image: emotionClassifier,
   },
   {
     title: "3D-Briscola",
     tags: ["C++", "Vulkan", "GLSL", "Game Dev"],
     github: "https://github.com/Khalil002/3D-Briscola",
+    image: threeDBriscola,
   },
   {
     title: "Miosix-Buddy-Allocator",

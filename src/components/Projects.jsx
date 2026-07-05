@@ -1,4 +1,4 @@
-import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+import { FaGithub, FaExternalLinkAlt, FaImage } from "react-icons/fa";
 import { projects } from "../data/portfolio";
 import Reveal from "./Reveal";
 import { useLanguage } from "../context/LanguageContext";
@@ -64,10 +64,17 @@ export default function Projects() {
             </div>
 
             <div className="w-full md:w-1/2 grid grid-cols-1 gap-4 mt-6 md:mt-0">
-              <div className="bg-gray-800/30 rounded-lg flex items-center justify-center p-8 min-h-[160px]">
-                <span className="text-purple-300/60 text-sm tracking-wide">
-                  {project.title}
-                </span>
+              <div className="bg-gray-800/30 rounded-lg overflow-hidden flex items-center justify-center min-h-[160px]">
+                {project.image ? (
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                ) : (
+                  <FaImage className="w-10 h-10 text-purple-300/30" />
+                )}
               </div>
             </div>
           </Reveal>
