@@ -1,13 +1,22 @@
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 import { projects } from "../data/portfolio";
+import Reveal from "./Reveal";
+import { useLanguage } from "../context/LanguageContext";
 
 export default function Projects() {
+  const { t } = useLanguage();
+
   return (
     <section id="projects" className="w-full flex flex-col items-center px-4 py-20 max-w-6xl mx-auto">
-      <h2 className="text-3xl md:text-4xl font-extrabold mb-10 text-purple-400 p-3 border-b-4 border-purple-500">Projects</h2>
+      <Reveal as="h2" variant="grow" className="text-3xl md:text-4xl font-extrabold mb-10 text-purple-400 p-3 border-b-4 border-purple-500">
+        {t.projects.heading}
+      </Reveal>
       <div className="w-full flex flex-col gap-6">
-        {projects.map((project) => (
-          <article
+        {projects.map((project, index) => (
+          <Reveal
+            as="article"
+            variant="up"
+            delay={index * 100}
             key={project.title}
             className="w-full bg-gray-900/40 rounded-xl shadow-xl overflow-hidden md:flex gap-6 p-6 border border-white/5"
           >
@@ -18,7 +27,7 @@ export default function Projects() {
                 </a>
               </h3>
               <p className="text-white/70 text-sm md:text-base leading-relaxed">
-                {project.description}
+                {t.projects.descriptions[project.title]}
               </p>
 
               <div className="mt-4 flex flex-wrap gap-2">
@@ -39,7 +48,7 @@ export default function Projects() {
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 text-purple-300 hover:text-white transition"
                 >
-                  <FaGithub className="w-5 h-5" /> Code
+                  <FaGithub className="w-5 h-5" /> {t.projects.code}
                 </a>
                 {project.live && (
                   <a
@@ -48,7 +57,7 @@ export default function Projects() {
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 text-purple-300 hover:text-white transition"
                   >
-                    <FaExternalLinkAlt className="w-4 h-4" /> Live
+                    <FaExternalLinkAlt className="w-4 h-4" /> {t.projects.live}
                   </a>
                 )}
               </div>
@@ -61,7 +70,7 @@ export default function Projects() {
                 </span>
               </div>
             </div>
-          </article>
+          </Reveal>
         ))}
       </div>
     </section>

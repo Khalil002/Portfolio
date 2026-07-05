@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { navLinks } from "../data/portfolio";
+import { useLanguage } from "../context/LanguageContext";
+import LanguagePicker from "./LanguagePicker";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const { t } = useLanguage();
 
   return (
     <header className="sticky top-0 z-50 w-full bg-black/70 backdrop-blur-md border-b border-white/10">
@@ -18,26 +21,30 @@ export default function Navbar() {
                 href={link.href}
                 className="px-4 py-2 rounded-md text-purple-300 hover:bg-purple-600/20 hover:text-white transition duration-300 font-medium text-sm md:text-base"
               >
-                {link.label}
+                {t.nav[link.key]}
               </a>
             </li>
           ))}
         </ul>
 
-        <button
-          type="button"
-          onClick={() => setOpen((v) => !v)}
-          className="md:hidden text-purple-300 hover:text-white p-2"
-          aria-label="Toggle menu"
-        >
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            {open ? (
-              <path d="M6 6l12 12M18 6L6 18" strokeLinecap="round" />
-            ) : (
-              <path d="M4 6h16M4 12h16M4 18h16" strokeLinecap="round" />
-            )}
-          </svg>
-        </button>
+        <div className="flex items-center gap-1">
+          <LanguagePicker />
+
+          <button
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            className="md:hidden text-purple-300 hover:text-white p-2"
+            aria-label={t.misc.toggleMenu}
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              {open ? (
+                <path d="M6 6l12 12M18 6L6 18" strokeLinecap="round" />
+              ) : (
+                <path d="M4 6h16M4 12h16M4 18h16" strokeLinecap="round" />
+              )}
+            </svg>
+          </button>
+        </div>
       </nav>
 
       {open && (
@@ -49,7 +56,7 @@ export default function Navbar() {
                 onClick={() => setOpen(false)}
                 className="block px-4 py-2 rounded-md text-purple-300 hover:bg-purple-600/20 hover:text-white transition duration-300 font-medium"
               >
-                {link.label}
+                {t.nav[link.key]}
               </a>
             </li>
           ))}

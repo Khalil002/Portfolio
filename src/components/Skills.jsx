@@ -27,6 +27,8 @@ import {
 import { VscAzure, VscBeaker } from "react-icons/vsc";
 import { TbMatrix, TbDatabase } from "react-icons/tb";
 import { skills } from "../data/portfolio";
+import Reveal from "./Reveal";
+import { useLanguage } from "../context/LanguageContext";
 
 const iconMap = {
   C: SiC,
@@ -73,14 +75,18 @@ function SkillItem({ name }) {
 }
 
 export default function Skills() {
+  const { t } = useLanguage();
+
   return (
     <section id="skills" className="w-full flex flex-col items-center px-4 py-20 max-w-6xl mx-auto">
-      <h2 className="text-3xl md:text-4xl font-extrabold mb-10 text-purple-400 p-3 border-b-4 border-purple-500">Skills</h2>
+      <Reveal as="h2" variant="grow" className="text-3xl md:text-4xl font-extrabold mb-10 text-purple-400 p-3 border-b-4 border-purple-500">
+        {t.skills.heading}
+      </Reveal>
 
-      <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-14">
+      <Reveal variant="up" delay={150} className="w-full grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-14">
         {skills.map((group) => (
           <div key={group.category}>
-            <p className="text-lg text-purple-300 font-bold mb-6">{group.category}</p>
+            <p className="text-lg text-purple-300 font-bold mb-6">{t.skills.categories[group.category]}</p>
             <div className="flex flex-wrap gap-6">
               {group.items.map((item) => (
                 <SkillItem key={item} name={item} />
@@ -88,7 +94,7 @@ export default function Skills() {
             </div>
           </div>
         ))}
-      </div>
+      </Reveal>
     </section>
   );
 }
