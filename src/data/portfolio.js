@@ -2,13 +2,14 @@ import dbAdminWebApp from "../assets/projects/dbadmin-webapp.png";
 import emotionClassifier from "../assets/projects/emotion-classifier.png";
 import threeDBriscola from "../assets/projects/3d-briscola.jpg";
 import myBlogImg from "../assets/projects/my-blog.png";
+import resumePdf from "../assets/khalil_cv.pdf";
 
 export const profile = {
   name: "Khalil El Hage Kassem",
   email: "khalil.elhage@mail.polimi.it",
   github: "https://github.com/Khalil002",
   linkedin: "https://www.linkedin.com/in/khalil002/",
-  resumeUrl: "/resume.pdf",
+  resumeUrl: resumePdf,
 };
 
 export const navLinks = [

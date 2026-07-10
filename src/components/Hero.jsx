@@ -24,7 +24,7 @@ export default function Hero() {
       <div className="flex flex-col sm:flex-row items-center gap-4 mt-10">
         <a
           href={profile.resumeUrl}
-          download
+          download="Khalil_El_Hage_Kassem_CV.pdf"
           className="rounded-full border border-purple-500 bg-purple-600 text-white font-medium text-sm h-10 px-6 hover:bg-purple-700 hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 w-full sm:w-auto"
         >
           <FaDownload /> {t.hero.downloadResume}
