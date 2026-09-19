@@ -21,23 +21,6 @@ export default function Hero() {
         {t.hero.tagline}
       </p>
 
-      <div className="flex flex-col sm:flex-row items-center gap-4 mt-10">
-        <a
-          href={profile.resumeUrl}
-          download="Khalil_El_Hage_Kassem_CV.pdf"
-          className="rounded-full border border-purple-500 bg-purple-600 text-white font-medium text-sm h-10 px-6 hover:bg-purple-700 hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 w-full sm:w-auto"
-        >
-          <FaDownload /> {t.hero.downloadResume}
-        </a>
-        <a
-          href={profile.resumeUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="rounded-full border border-purple-500/50 text-purple-300 font-medium text-sm h-10 px-6 hover:bg-purple-600/20 hover:text-white hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 w-full sm:w-auto"
-        >
-          <FaEye /> {t.hero.viewResume}
-        </a>
-      </div>
     </section>
   );
 }
