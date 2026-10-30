@@ -5,7 +5,7 @@ import myBlogImg from "../assets/projects/my-blog.png";
 
 export const profile = {
   name: "Khalil El Hage Kassem",
-  email: "khalil.elhage@mail.polimi.it",
+  email: "khalil.codes.dev@gmail.com",
   github: "https://github.com/Khalil002",
   linkedin: "https://www.linkedin.com/in/khalil002/",
 };
