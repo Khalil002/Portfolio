@@ -1,9 +1,12 @@
 import { FaGithub, FaExternalLinkAlt, FaImage } from "react-icons/fa";
 import { projects } from "../data/portfolio";
+import { repoByName, TAGS } from "../data/repos";
 import Reveal from "./Reveal";
 import { useLanguage } from "../context/LanguageContext";
 
-export default function Projects() {
+const FEATURED_TAG_LIMIT = 7;
+
+export default function Projects({ onTagClick }) {
   const { t } = useLanguage();
 
   return (
@@ -31,13 +34,16 @@ export default function Projects() {
               </p>
 
               <div className="mt-4 flex flex-wrap gap-2">
-                {project.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="text-sm bg-purple-600/20 text-white px-3 py-1 rounded-lg"
+                {(repoByName[project.title]?.tags ?? []).slice(0, FEATURED_TAG_LIMIT).map((id) => (
+                  <button
+                    key={id}
+                    type="button"
+                    onClick={() => onTagClick?.(id)}
+                    title={t.projects.searchTag}
+                    className="text-sm bg-purple-600/20 hover:bg-purple-600/50 text-white px-3 py-1 rounded-lg transition"
                   >
-                    {tag}
-                  </span>
+                    {TAGS[id].label}
+                  </button>
                 ))}
               </div>
 

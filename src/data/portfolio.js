@@ -8,12 +8,15 @@ export const profile = {
   email: "khalil.codes.dev@gmail.com",
   github: "https://github.com/Khalil002",
   linkedin: "https://www.linkedin.com/in/khalil002/",
+  resume: `${import.meta.env.BASE_URL}resume.pdf`,
 };
 
 export const navLinks = [
   { key: "about", href: "#about" },
   { key: "skills", href: "#skills" },
   { key: "projects", href: "#projects" },
+  { key: "search", href: "#search" },
+  { key: "resume", href: "#resume" },
   { key: "contact", href: "#contact" },
 ];
 
@@ -39,37 +42,31 @@ export const skills = [
 export const projects = [
   {
     title: "My-Blog",
-    tags: ["Django", "PostgreSQL", "Docker", "Python"],
     github: "https://github.com/Khalil002/My-Blog",
     live: "https://blog.khalilcodes.com",
     image: myBlogImg,
   },
   {
     title: "DB-Admin-WebApp",
-    tags: ["MongoDB", "Express", "React", "Node.js", "Docker"],
     github: "https://github.com/Khalil002/DB-Admin-WebApp",
     image: dbAdminWebApp,
   },
   {
     title: "Medical-Appointment-MobileApp",
-    tags: ["Flutter", "Dart", "Firebase"],
     github: "https://github.com/Khalil002/Medical-Appointment-MobileApp",
   },
   {
     title: "Emotion-Classifier",
-    tags: ["Python", "Machine Learning", "Jupyter", "Tkinter"],
     github: "https://github.com/Khalil002/Emotion-Classifier",
     image: emotionClassifier,
   },
   {
     title: "3D-Briscola",
-    tags: ["C++", "Vulkan", "GLSL", "Game Dev"],
     github: "https://github.com/Khalil002/3D-Briscola",
     image: threeDBriscola,
   },
   {
     title: "Miosix-Buddy-Allocator",
-    tags: ["C", "Operating Systems", "Memory Management"],
     github: "https://github.com/Khalil002/Miosix-Buddy-Allocator",
   },
 ];

@@ -7,7 +7,14 @@ export const languages = [
 
 export const translations = {
   en: {
-    nav: { about: "About", skills: "Skills", projects: "Projects", contact: "Contact" },
+    nav: {
+      about: "About",
+      skills: "Skills",
+      projects: "Projects",
+      contact: "Contact",
+      search: "Repositories",
+      resume: "Resume",
+    },
     hero: {
       greeting: "Hi, I am",
       title: "Full-Stack Software Engineer",
@@ -15,6 +22,7 @@ export const translations = {
         "Skilled in API development and Machine Learning algorithms. Passionate about Web Development, Artificial Intelligence and Cloud Computing.",
       downloadResume: "Download Resume",
       viewResume: "View Resume",
+      searchRepos: "Search my repos",
     },
     about: {
       heading: "About Me",
@@ -33,6 +41,7 @@ export const translations = {
       heading: "Projects",
       code: "Code",
       live: "Live",
+      searchTag: "Search repos with this tag",
       descriptions: {
         "My-Blog":
           "A blog platform built with Django and PostgreSQL, fully containerized with Docker. The frontend is server-side rendered through Django's MVT architecture, with views pulling data straight from Postgres into HTML templates.",
@@ -48,13 +57,57 @@ export const translations = {
           "A buddy memory allocator implementation for the Miosix embedded OS kernel, handling low-level memory block splitting and coalescing.",
       },
     },
-    contact: { heading: "Contact Me", email: "Email", linkedin: "LinkedIn", github: "GitHub" },
+    resume: {
+      heading: "Resume",
+      experience: "Experience",
+      education: "Education",
+    },
+    search: {
+      heading: "Search My Repositories",
+      subheading:
+        'Every public repo I have, tagged by what\'s actually in the code. Each word you type is a tag: try "docker api" or "python machine learning".',
+      placeholder: "Type tags, e.g. docker api microservices",
+      clear: "Clear search",
+      matchLabel: "Match mode",
+      matchAll: "All tags",
+      matchAny: "Any tag",
+      suggestions: "Did you mean:",
+      remove: "Remove",
+      unknownTag: "No repo has this tag",
+      tryLabel: "Try:",
+      browseTags: "Browse all tags",
+      hideTags: "Hide tags",
+      results: "Showing {count} of {total} repositories",
+      noResults:
+        'No repository has all of these tags. Remove one, or switch to "Any tag".',
+      groups: {
+        language: "Languages",
+        framework: "Frameworks & libraries",
+        data: "Databases & data",
+        architecture: "Architecture",
+        devops: "DevOps & tools",
+        domain: "Domains",
+      },
+    },
+    contact: {
+      heading: "Contact Me",
+      email: "Email",
+      linkedin: "LinkedIn",
+      github: "GitHub",
+    },
     footer: "Built with React & Tailwind CSS.",
     misc: { toggleMenu: "Toggle menu", language: "Language" },
   },
 
   es: {
-    nav: { about: "Sobre mí", skills: "Habilidades", projects: "Proyectos", contact: "Contacto" },
+    nav: {
+      about: "Sobre mí",
+      skills: "Habilidades",
+      projects: "Proyectos",
+      contact: "Contacto",
+      search: "Repositorios",
+      resume: "CV",
+    },
     hero: {
       greeting: "Hola, soy",
       title: "Ingeniero de Software Full-Stack",
@@ -62,6 +115,7 @@ export const translations = {
         "Especializado en desarrollo de APIs y algoritmos de Machine Learning. Apasionado por el desarrollo web, la inteligencia artificial y la computación en la nube.",
       downloadResume: "Descargar CV",
       viewResume: "Ver CV",
+      searchRepos: "Buscar mis repos",
     },
     about: {
       heading: "Sobre mí",
@@ -80,6 +134,7 @@ export const translations = {
       heading: "Proyectos",
       code: "Código",
       live: "En vivo",
+      searchTag: "Buscar repos con esta etiqueta",
       descriptions: {
         "My-Blog":
           "Una plataforma de blog construida con Django y PostgreSQL, totalmente contenedorizada con Docker. El frontend se renderiza en el servidor mediante la arquitectura MVT de Django, con vistas que traen los datos directamente desde Postgres hacia las plantillas HTML.",
@@ -95,13 +150,57 @@ export const translations = {
           "Una implementación de un asignador de memoria buddy para el kernel del sistema operativo embebido Miosix, encargado de dividir y fusionar bloques de memoria de bajo nivel.",
       },
     },
-    contact: { heading: "Contáctame", email: "Correo", linkedin: "LinkedIn", github: "GitHub" },
+    resume: {
+      heading: "Currículum",
+      experience: "Experiencia",
+      education: "Educación",
+    },
+    search: {
+      heading: "Busca en mis repositorios",
+      subheading:
+        'Todos mis repositorios públicos, etiquetados según lo que realmente hay en el código. Cada palabra que escribas es una etiqueta: prueba "docker api" o "python machine learning".',
+      placeholder: "Escribe etiquetas, p. ej. docker api microservices",
+      clear: "Borrar búsqueda",
+      matchLabel: "Modo de coincidencia",
+      matchAll: "Todas",
+      matchAny: "Cualquiera",
+      suggestions: "¿Quisiste decir?",
+      remove: "Quitar",
+      unknownTag: "Ningún repositorio tiene esta etiqueta",
+      tryLabel: "Prueba:",
+      browseTags: "Ver todas las etiquetas",
+      hideTags: "Ocultar etiquetas",
+      results: "Mostrando {count} de {total} repositorios",
+      noResults:
+        'Ningún repositorio tiene todas estas etiquetas. Quita alguna o cambia a "Cualquiera".',
+      groups: {
+        language: "Lenguajes",
+        framework: "Frameworks y librerías",
+        data: "Bases de datos y datos",
+        architecture: "Arquitectura",
+        devops: "DevOps y herramientas",
+        domain: "Áreas",
+      },
+    },
+    contact: {
+      heading: "Contáctame",
+      email: "Correo",
+      linkedin: "LinkedIn",
+      github: "GitHub",
+    },
     footer: "Construido con React y Tailwind CSS.",
     misc: { toggleMenu: "Alternar menú", language: "Idioma" },
   },
 
   ar: {
-    nav: { about: "نبذة عني", skills: "المهارات", projects: "المشاريع", contact: "تواصل معي" },
+    nav: {
+      about: "نبذة عني",
+      skills: "المهارات",
+      projects: "المشاريع",
+      contact: "تواصل معي",
+      search: "المستودعات",
+      resume: "السيرة الذاتية",
+    },
     hero: {
       greeting: "مرحباً، أنا",
       title: "مهندس برمجيات متكامل (Full-Stack)",
@@ -109,6 +208,7 @@ export const translations = {
         "متمكّن في تطوير واجهات برمجة التطبيقات وخوارزميات تعلّم الآلة. شغوف بتطوير الويب، والذكاء الاصطناعي، والحوسبة السحابية.",
       downloadResume: "تحميل السيرة الذاتية",
       viewResume: "عرض السيرة الذاتية",
+      searchRepos: "ابحث في مستودعاتي",
     },
     about: {
       heading: "نبذة عني",
@@ -127,6 +227,7 @@ export const translations = {
       heading: "المشاريع",
       code: "الكود",
       live: "معاينة مباشرة",
+      searchTag: "ابحث عن المستودعات بهذا الوسم",
       descriptions: {
         "My-Blog":
           "منصة مدونة مبنية باستخدام Django وPostgreSQL، معبأة بالكامل داخل حاويات Docker. يتم عرض الواجهة الأمامية من جانب الخادم عبر بنية MVT الخاصة بـDjango، حيث تسحب طرق العرض البيانات مباشرة من Postgres وتُدرجها في قوالب HTML.",
@@ -142,13 +243,57 @@ export const translations = {
           "تطبيق لمخصص ذاكرة من نوع Buddy لنواة نظام التشغيل المدمج Miosix، يتولى تقسيم كتل الذاكرة ودمجها على المستوى المنخفض.",
       },
     },
-    contact: { heading: "تواصل معي", email: "البريد الإلكتروني", linkedin: "لينكدإن", github: "غيتهب" },
+    resume: {
+      heading: "السيرة الذاتية",
+      experience: "الخبرة",
+      education: "التعليم",
+    },
+    search: {
+      heading: "ابحث في مستودعاتي",
+      subheading:
+        'جميع مستودعاتي العامة، موسومة بحسب ما يحتويه الكود فعلاً. كل كلمة تكتبها هي وسم: جرّب "docker api" أو "python machine learning".',
+      placeholder: "اكتب الوسوم، مثل docker api microservices",
+      clear: "مسح البحث",
+      matchLabel: "طريقة المطابقة",
+      matchAll: "كل الوسوم",
+      matchAny: "أي وسم",
+      suggestions: "هل تقصد:",
+      remove: "إزالة",
+      unknownTag: "لا يوجد مستودع بهذا الوسم",
+      tryLabel: "جرّب:",
+      browseTags: "تصفّح كل الوسوم",
+      hideTags: "إخفاء الوسوم",
+      results: "عرض {count} من {total} مستودعاً",
+      noResults:
+        'لا يوجد مستودع يحمل كل هذه الوسوم. أزل أحدها أو اختر "أي وسم".',
+      groups: {
+        language: "اللغات",
+        framework: "الأطر والمكتبات",
+        data: "قواعد البيانات والبيانات",
+        architecture: "البنية",
+        devops: "DevOps والأدوات",
+        domain: "المجالات",
+      },
+    },
+    contact: {
+      heading: "تواصل معي",
+      email: "البريد الإلكتروني",
+      linkedin: "لينكدإن",
+      github: "غيتهب",
+    },
     footer: "تم البناء باستخدام React وTailwind CSS.",
     misc: { toggleMenu: "القائمة", language: "اللغة" },
   },
 
   it: {
-    nav: { about: "Chi sono", skills: "Competenze", projects: "Progetti", contact: "Contatti" },
+    nav: {
+      about: "Chi sono",
+      skills: "Competenze",
+      projects: "Progetti",
+      contact: "Contatti",
+      search: "Repository",
+      resume: "CV",
+    },
     hero: {
       greeting: "Ciao, sono",
       title: "Ingegnere Software Full-Stack",
@@ -156,6 +301,7 @@ export const translations = {
         "Esperto nello sviluppo di API e negli algoritmi di Machine Learning. Appassionato di sviluppo web, intelligenza artificiale e cloud computing.",
       downloadResume: "Scarica CV",
       viewResume: "Visualizza CV",
+      searchRepos: "Cerca nei miei repo",
     },
     about: {
       heading: "Chi sono",
@@ -174,6 +320,7 @@ export const translations = {
       heading: "Progetti",
       code: "Codice",
       live: "Live",
+      searchTag: "Cerca repo con questo tag",
       descriptions: {
         "My-Blog":
           "Una piattaforma di blog realizzata con Django e PostgreSQL, completamente containerizzata con Docker. Il frontend viene renderizzato lato server tramite l'architettura MVT di Django, con le view che recuperano i dati direttamente da Postgres inserendoli nei template HTML.",
@@ -189,7 +336,44 @@ export const translations = {
           "Un'implementazione di un allocatore di memoria buddy per il kernel del sistema operativo embedded Miosix, che gestisce la suddivisione e l'unione dei blocchi di memoria a basso livello.",
       },
     },
-    contact: { heading: "Contattami", email: "Email", linkedin: "LinkedIn", github: "GitHub" },
+    resume: {
+      heading: "Curriculum",
+      experience: "Esperienza",
+      education: "Formazione",
+    },
+    search: {
+      heading: "Cerca nei miei repository",
+      subheading:
+        'Tutti i miei repository pubblici, taggati in base a ciò che c\'è davvero nel codice. Ogni parola che scrivi è un tag: prova "docker api" o "python machine learning".',
+      placeholder: "Scrivi dei tag, es. docker api microservices",
+      clear: "Cancella ricerca",
+      matchLabel: "Modalità di corrispondenza",
+      matchAll: "Tutti i tag",
+      matchAny: "Almeno uno",
+      suggestions: "Forse cercavi:",
+      remove: "Rimuovi",
+      unknownTag: "Nessun repository ha questo tag",
+      tryLabel: "Prova:",
+      browseTags: "Mostra tutti i tag",
+      hideTags: "Nascondi tag",
+      results: "{count} di {total} repository",
+      noResults:
+        'Nessun repository ha tutti questi tag. Rimuovine uno o passa ad "Almeno uno".',
+      groups: {
+        language: "Linguaggi",
+        framework: "Framework e librerie",
+        data: "Database e dati",
+        architecture: "Architettura",
+        devops: "DevOps e strumenti",
+        domain: "Ambiti",
+      },
+    },
+    contact: {
+      heading: "Contattami",
+      email: "Email",
+      linkedin: "LinkedIn",
+      github: "GitHub",
+    },
     footer: "Realizzato con React e Tailwind CSS.",
     misc: { toggleMenu: "Menu", language: "Lingua" },
   },

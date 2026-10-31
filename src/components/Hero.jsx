@@ -20,6 +20,29 @@ export default function Hero() {
       <p className="text-white/80 w-[90%] md:w-[70%] text-base md:text-lg mt-8 leading-relaxed">
         {t.hero.tagline}
       </p>
+      <div className="mt-10 flex flex-col sm:flex-row items-center gap-4">
+        <a
+          href={profile.resume}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-2 bg-purple-600 hover:bg-purple-500 text-white font-semibold rounded-xl py-3 px-6 transition"
+        >
+          <FaEye /> {t.hero.viewResume}
+        </a>
+        <a
+          href={profile.resume}
+          download="Khalil-El-Hage-Kassem-Resume.pdf"
+          className="flex items-center gap-2 border border-purple-400/50 hover:bg-purple-600/20 text-purple-200 font-semibold rounded-xl py-3 px-6 transition"
+        >
+          <FaDownload /> {t.hero.downloadResume}
+        </a>
+        <a
+          href="#search"
+          className="flex items-center gap-2 text-purple-300 hover:text-white font-semibold py-3 px-6 transition"
+        >
+          {t.hero.searchRepos}
+        </a>
+      </div>
 
     </section>
   );
