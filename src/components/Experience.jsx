@@ -6,16 +6,18 @@ import { localizeList } from "../i18n/content";
 
 // Layout adapted from aahil-khan/portfolio-canvas (MIT) — see THIRD_PARTY_LICENSES.md.
 // Anchors use the English role so they stay the same in every language.
+// Same condition as the one-screen block in site.css.
+const ONE_SCREEN = "(min-width: 900px) and (min-height: 620px)";
 const slug = (i) => experience[i].role.toLowerCase().replace(/[^a-z0-9]+/g, "-");
 
-function JobCard({ job, anchor }) {
+function JobCard({ job, anchor, shown }) {
   const { t } = useLanguage();
   const [open, setOpen] = useState(false);
   const bodyId = useId();
   const [place, location] = job.place.split(" — ");
 
   return (
-    <article className="job" id={`job-${anchor}`} data-job data-open={open ? "1" : "0"}>
+    <article className="job" id={`job-${anchor}`} data-job data-shown={shown ? "1" : "0"} data-open={open ? "1" : "0"}>
       <p className="job__when">
         <b>{job.period}</b>
         {location || place}
@@ -48,8 +50,19 @@ export default function Experience() {
   const [active, setActive] = useState(0);
   const jobs = localizeList(language, "experience", experience);
 
-  // highlight the index entry for the card currently in view
+  // On a one-screen layout (see site.css) the index works as tabs and only the selected job
+  // is shown, so the section always fits. Otherwise every job is listed and the index
+  // highlights the card currently in view.
+  const [tabs, setTabs] = useState(() => window.matchMedia(ONE_SCREEN).matches);
   useEffect(() => {
+    const mq = window.matchMedia(ONE_SCREEN);
+    const onChange = () => setTabs(mq.matches);
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
+
+  useEffect(() => {
+    if (tabs) return;
     const cards = [...document.querySelectorAll("[data-job]")];
     const io = new IntersectionObserver(
       (entries) => {
@@ -59,7 +72,7 @@ export default function Experience() {
     );
     cards.forEach((c) => io.observe(c));
     return () => io.disconnect();
-  }, []);
+  }, [tabs]);
 
   return (
     <section id="experience">
@@ -69,7 +82,17 @@ export default function Experience() {
           <ol className="xp__list">
             {jobs.map((job, i) => (
               <li key={slug(i)}>
-                <a className="xp__item" href={`#job-${slug(i)}`} data-on={i === active ? "1" : "0"}>
+                <a
+                  className="xp__item"
+                  href={`#job-${slug(i)}`}
+                  data-on={i === active ? "1" : "0"}
+                  aria-current={tabs && i === active ? "true" : undefined}
+                  onClick={(e) => {
+                    if (!tabs) return;
+                    e.preventDefault();
+                    setActive(i);
+                  }}
+                >
                   <span className="xp__bullet" aria-hidden="true" />
                   <span>
                     <b>{job.role}</b>
@@ -82,7 +105,7 @@ export default function Experience() {
         </aside>
         <div className="xp__detail">
           {jobs.map((job, i) => (
-            <JobCard key={slug(i)} anchor={slug(i)} job={job} />
+            <JobCard key={slug(i)} anchor={slug(i)} job={job} shown={!tabs || i === active} />
           ))}
         </div>
       </div>

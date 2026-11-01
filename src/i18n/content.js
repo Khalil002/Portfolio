@@ -7,6 +7,15 @@ export const content = {
   es: {
     experience: [
       {
+        role: "Desarrollador de Software en Prácticas",
+        place: "Casa Real — Maicao, La Guajira, Colombia",
+        period: "Febrero 2024 - Septiembre 2024",
+        points: [
+          "Participé en la migración de un sistema ERP/CRM heredado, local y de un tercero, a una solución propia en la nube construida sobre ERPNext y el framework Frappe, reduciendo los costos de infraestructura en ~20% y los de suscripción en ~30%.",
+          "Automaticé la extracción de datos con pipelines ETL para migrar de forma segura el historial de clientes y transacciones a la nueva plataforma.",
+        ],
+      },
+      {
         role: "Instructor de Arquitectura de Computadores",
         place: "Universidad del Norte — Barranquilla, Colombia",
         period: "Julio 2022 - Diciembre 2022",
@@ -66,6 +75,15 @@ export const content = {
   ar: {
     experience: [
       {
+        role: "متدرّب تطوير برمجيات",
+        place: "Casa Real — مايكاو، لا غواخيرا، كولومبيا",
+        period: "فبراير 2024 - سبتمبر 2024",
+        points: [
+          "ساهمت في نقل نظام ERP/CRM قديم مُثبّت محلياً من طرف ثالث إلى حل سحابي مخصص مبني على ERPNext وإطار عمل Frappe، مما خفّض تكاليف البنية التحتية بنحو 20% وتكاليف الاشتراك بنحو 30%.",
+          "أتمتُّ استخراج البيانات عبر مسارات ETL لنقل بيانات العملاء والمعاملات التاريخية بأمان إلى المنصة الجديدة.",
+        ],
+      },
+      {
         role: "مدرّس معمارية الحاسوب",
         place: "Universidad del Norte — بارانكيا، كولومبيا",
         period: "يوليو 2022 - ديسمبر 2022",
@@ -124,6 +142,15 @@ export const content = {
 
   it: {
     experience: [
+      {
+        role: "Software Developer Intern",
+        place: "Casa Real — Maicao, La Guajira, Colombia",
+        period: "Febbraio 2024 - Settembre 2024",
+        points: [
+          "Ho contribuito alla migrazione di un sistema ERP/CRM legacy on-premise di terze parti verso una soluzione cloud personalizzata basata su ERPNext e sul framework Frappe, riducendo i costi di infrastruttura di circa il 20% e quelli di abbonamento di circa il 30%.",
+          "Ho automatizzato l'estrazione dei dati con pipeline ETL per migrare in modo sicuro lo storico di clienti e transazioni sulla nuova piattaforma.",
+        ],
+      },
       {
         role: "Tutor di Architettura dei Calcolatori",
         place: "Universidad del Norte — Barranquilla, Colombia",

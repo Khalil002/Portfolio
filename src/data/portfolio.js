@@ -76,6 +76,15 @@ export const projects = [
 
 export const experience = [
   {
+    role: "Software Developer Intern",
+    place: "Casa Real — Maicao, La Guajira, Colombia",
+    period: "February 2024 - September 2024",
+    points: [
+      "Contributed to migrating a legacy third-party on-premise ERP/CRM system to a custom cloud solution built on top of ERPNext and the Frappe framework, cutting infrastructure costs by ~20% and subscription costs by ~30%.",
+      "Automated data extraction with ETL pipelines to securely migrate historical customer and transaction data into the new platform.",
+    ],
+  },
+  {
     role: "Computer Architectures Instructor",
     place: "Universidad del Norte — Barranquilla, Colombia",
     period: "July 2022 - December 2022",

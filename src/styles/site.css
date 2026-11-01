@@ -1350,6 +1350,11 @@
   .site .xp__detail { gap: clamp(0.85rem, 2.5vh, 1.5rem); }
   .site .job { padding: clamp(1rem, 2.6vh, 1.75rem) clamp(1.25rem, 3vw, 2rem); }
   .site .job__points { margin-top: 0.6rem; gap: 0.35rem; }
+  /* the index works as tabs here: only the selected job is shown (see Experience.jsx) */
+  .site .xp__detail { align-content: start; }
+  .site .job[data-shown='0'] { display: none; }
+  .site .job[data-shown='1'] { animation: caseIn 0.35s ease both; }
+  .site .xp__item { cursor: pointer; }
 
   /* projects: one case at a time (see Projects.jsx), image bounded by the screen */
   .site .case__shot { max-height: calc(100svh - var(--bar-h) - 16rem); }
@@ -1408,7 +1413,7 @@
   from { opacity: 0; transform: translateY(12px); }
   to { opacity: 1; transform: none; }
 }
-@media (prefers-reduced-motion: reduce) { .site .case--enter { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .site .case--enter, .site .job[data-shown='1'] { animation: none; } }
 @media (min-width: 861px) {
   .site .case--flip { grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr); }
   .site .case--flip .case__shot { order: 2; }
