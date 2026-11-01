@@ -2,6 +2,7 @@ import dbAdminWebApp from "../assets/projects/dbadmin-webapp.png";
 import emotionClassifier from "../assets/projects/emotion-classifier.png";
 import threeDBriscola from "../assets/projects/3d-briscola.jpg";
 import myBlogImg from "../assets/projects/my-blog.png";
+import photo from "../assets/khalil.jpg";
 
 export const profile = {
   name: "Khalil El Hage Kassem",
@@ -9,25 +10,27 @@ export const profile = {
   github: "https://github.com/Khalil002",
   linkedin: "https://www.linkedin.com/in/khalil002/",
   resume: `${import.meta.env.BASE_URL}resume.pdf`,
+  // About photo; set to null to show the initials block instead.
+  photo,
 };
 
 export const navLinks = [
   { key: "about", href: "#about" },
   { key: "skills", href: "#skills" },
+  { key: "experience", href: "#experience" },
   { key: "projects", href: "#projects" },
   { key: "search", href: "#search" },
-  { key: "resume", href: "#resume" },
   { key: "contact", href: "#contact" },
 ];
 
 export const skills = [
   {
     category: "Programming Languages",
-    items: ["C", "C++", "C#", "Python", "Java", "JavaScript", "MATLAB", "PHP", "Dart", "HTML", "CSS"],
+    items: ["C", "C++", "C#", "Python", "Java", "JavaScript", "MATLAB", "Dart"],
   },
   {
     category: "Frameworks",
-    items: ["Django", "FastAPI", ".NET", "Spring", "Node.js", "React", "Laravel"],
+    items: ["Django", "FastAPI", ".NET", "Spring", "Node.js", "React"],
   },
   {
     category: "Databases",
@@ -98,7 +101,7 @@ export const education = [
   {
     school: "Politecnico di Milano — Milan, Italy",
     degree: "Master's Degree in Computer Science and Engineering",
-    period: "September 2024 - October 2026 (Expected)",
+    period: "September 2024 - December 2026 (Expected)",
   },
   {
     school: "Universidad del Norte — Barranquilla, Colombia",

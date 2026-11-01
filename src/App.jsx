@@ -5,7 +5,7 @@ import Skills from "./components/Skills";
 import { useState } from "react";
 import Projects from "./components/Projects";
 import RepoSearch from "./components/RepoSearch";
-import Resume from "./components/Resume";
+import Experience from "./components/Experience";
 import { TAGS } from "./data/repos";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
@@ -19,14 +19,14 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen w-full bg-[#0a0a0a] text-white">
+    <div className="site">
       <Navbar />
       <Hero />
       <About />
       <Skills />
+      <Experience />
       <Projects onTagClick={searchTag} />
       <RepoSearch query={query} setQuery={setQuery} />
-      <Resume />
       <Contact />
       <Footer />
     </div>

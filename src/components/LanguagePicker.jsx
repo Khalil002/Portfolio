@@ -8,39 +8,31 @@ export default function LanguagePicker() {
   const ref = useRef(null);
 
   useEffect(() => {
-    function handleClickOutside(event) {
-      if (ref.current && !ref.current.contains(event.target)) {
-        setOpen(false);
-      }
-    }
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+    const onDown = (e) => ref.current && !ref.current.contains(e.target) && setOpen(false);
+    document.addEventListener("mousedown", onDown);
+    return () => document.removeEventListener("mousedown", onDown);
   }, []);
 
   return (
-    <div className="relative" ref={ref}>
-      <button
-        type="button"
-        onClick={() => setOpen((v) => !v)}
-        aria-label={t.misc.language}
-        className="text-xl p-2 rounded-md hover:bg-purple-600/20 transition"
-      >
-        🌐
+    <div className="lang" ref={ref}>
+      <button type="button" onClick={() => setOpen((v) => !v)} aria-label={t.misc.language} aria-expanded={open}>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+          <circle cx="12" cy="12" r="9" />
+          <path d="M3 12h18M12 3c2.5 2.7 2.5 15.3 0 18M12 3c-2.5 2.7-2.5 15.3 0 18" />
+        </svg>
+        {language}
       </button>
-
       {open && (
-        <ul className="absolute end-0 mt-2 w-36 bg-gray-900 border border-white/10 rounded-md shadow-lg overflow-hidden z-50">
+        <ul>
           {languages.map((lang) => (
             <li key={lang.code}>
               <button
                 type="button"
+                aria-current={language === lang.code}
                 onClick={() => {
                   setLanguage(lang.code);
                   setOpen(false);
                 }}
-                className={`w-full text-start px-4 py-2 text-sm hover:bg-purple-600/20 transition ${
-                  language === lang.code ? "text-purple-300 font-semibold" : "text-white/80"
-                }`}
               >
                 {lang.label}
               </button>

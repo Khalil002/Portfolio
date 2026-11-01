@@ -1,67 +1,76 @@
-import { useState } from "react";
-import { navLinks } from "../data/portfolio";
+import { useEffect, useState } from "react";
+import { navLinks, profile } from "../data/portfolio";
 import { useLanguage } from "../context/LanguageContext";
 import LanguagePicker from "./LanguagePicker";
+import logo from "../assets/logo-kh.svg";
 
+// Layout adapted from aahil-khan/portfolio-canvas (MIT) — see THIRD_PARTY_LICENSES.md.
 export default function Navbar() {
-  const [open, setOpen] = useState(false);
   const { t } = useLanguage();
+  const [stuck, setStuck] = useState(false);
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setStuck(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    const root = document.documentElement;
+    if (open) root.setAttribute("data-drawer", "");
+    else root.removeAttribute("data-drawer");
+    const onKey = (e) => e.key === "Escape" && setOpen(false);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open]);
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-black/70 backdrop-blur-md border-b border-white/10">
-      <nav className="max-w-6xl mx-auto flex items-center justify-between px-4 py-3">
-        <a href="#top" className="text-lg md:text-xl text-purple-300 font-bold">
-          Portfolio
+    <>
+      <header className="bar" data-stuck={stuck ? "1" : "0"}>
+        <a className="mark" href="#top" aria-label={profile.name}>
+          <img src={logo} alt="" />
         </a>
-
-        <ul className="hidden md:flex items-center gap-1">
+        <nav>
           {navLinks.map((link) => (
-            <li key={link.href}>
-              <a
-                href={link.href}
-                className="px-4 py-2 rounded-md text-purple-300 hover:bg-purple-600/20 hover:text-white transition duration-300 font-medium text-sm md:text-base"
-              >
-                {t.nav[link.key]}
-              </a>
-            </li>
+            <a key={link.href} href={link.href}>
+              {t.nav[link.key]}
+            </a>
           ))}
-        </ul>
+        </nav>
+        <LanguagePicker />
+        <a className="bar__cta" href={profile.resume} download="Khalil-El-Hage-Kassem-Resume.pdf">
+          <span>{t.nav.resume}</span>
+          <span className="long">PDF ↓</span>
+        </a>
+        <button
+          type="button"
+          className="burger"
+          aria-label={t.misc.toggleMenu}
+          aria-expanded={open}
+          aria-controls="drawer"
+          onClick={() => setOpen((v) => !v)}
+        >
+          <span />
+          <span />
+          <span />
+        </button>
+      </header>
 
-        <div className="flex items-center gap-1">
-          <LanguagePicker />
-
-          <button
-            type="button"
-            onClick={() => setOpen((v) => !v)}
-            className="md:hidden text-purple-300 hover:text-white p-2"
-            aria-label={t.misc.toggleMenu}
-          >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              {open ? (
-                <path d="M6 6l12 12M18 6L6 18" strokeLinecap="round" />
-              ) : (
-                <path d="M4 6h16M4 12h16M4 18h16" strokeLinecap="round" />
-              )}
-            </svg>
-          </button>
-        </div>
-      </nav>
-
-      {open && (
-        <ul className="md:hidden flex flex-col items-stretch px-4 pb-4 gap-1">
+      <button type="button" className="drawer__scrim" aria-hidden="true" tabIndex={-1} onClick={() => setOpen(false)} />
+      <aside className="drawer" id="drawer" aria-hidden={!open}>
+        <nav>
           {navLinks.map((link) => (
-            <li key={link.href}>
-              <a
-                href={link.href}
-                onClick={() => setOpen(false)}
-                className="block px-4 py-2 rounded-md text-purple-300 hover:bg-purple-600/20 hover:text-white transition duration-300 font-medium"
-              >
-                {t.nav[link.key]}
-              </a>
-            </li>
+            <a key={link.href} href={link.href} onClick={() => setOpen(false)} tabIndex={open ? 0 : -1}>
+              {t.nav[link.key]}
+            </a>
           ))}
-        </ul>
-      )}
-    </header>
+          <a className="drawer__desk" href={profile.resume} download tabIndex={open ? 0 : -1}>
+            {t.nav.resume} <span className="drawer__badge">pdf</span>
+          </a>
+        </nav>
+      </aside>
+    </>
   );
 }

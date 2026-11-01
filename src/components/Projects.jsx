@@ -1,90 +1,99 @@
-import { FaGithub, FaExternalLinkAlt, FaImage } from "react-icons/fa";
+import { useState } from "react";
 import { projects } from "../data/portfolio";
 import { repoByName, TAGS } from "../data/repos";
-import Reveal from "./Reveal";
+import SectionHead from "./SectionHead";
 import { useLanguage } from "../context/LanguageContext";
 
-const FEATURED_TAG_LIMIT = 7;
+// Case layout adapted from aahil-khan/portfolio-canvas (MIT) — see THIRD_PARTY_LICENSES.md.
+// Shown one project at a time so the section always fits on one screen.
+const CHIP_LIMIT = 5;
+const pad = (n) => String(n).padStart(2, "0");
+
+function Chevron({ dir }) {
+  return (
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      {dir === "prev" ? <path d="M10 3L5 8l5 5" /> : <path d="M6 3l5 5-5 5" />}
+    </svg>
+  );
+}
 
 export default function Projects({ onTagClick }) {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const [index, setIndex] = useState(0);
+  const project = projects[index];
+  const repo = repoByName[project.title];
+  const go = (i) => setIndex(Math.max(0, Math.min(projects.length - 1, i)));
+  const rtl = language === "ar";
 
   return (
-    <section id="projects" className="w-full flex flex-col items-center px-4 py-20 max-w-6xl mx-auto">
-      <Reveal as="h2" variant="grow" className="text-3xl md:text-4xl font-extrabold mb-10 text-purple-400 p-3 border-b-4 border-purple-500">
-        {t.projects.heading}
-      </Reveal>
-      <div className="w-full flex flex-col gap-6">
-        {projects.map((project, index) => (
-          <Reveal
-            as="article"
-            variant="up"
-            delay={index * 100}
-            key={project.title}
-            className="w-full bg-gray-900/40 rounded-xl shadow-xl overflow-hidden md:flex gap-6 p-6 border border-white/5"
-          >
-            <div className="w-full md:w-1/2 flex flex-col justify-center p-4">
-              <h3 className="text-xl md:text-2xl font-semibold mb-3 text-purple-400 hover:underline cursor-pointer">
-                <a href={project.github} target="_blank" rel="noopener noreferrer">
-                  {project.title}
-                </a>
-              </h3>
-              <p className="text-white/70 text-sm md:text-base leading-relaxed">
-                {t.projects.descriptions[project.title]}
+    <section className="work" id="projects">
+      <div className="wrap">
+        <SectionHead eyebrow={t.nav.projects} title={t.projects.heading} />
+        <div
+          className="carousel"
+          role="region"
+          aria-roledescription="carousel"
+          aria-label={t.projects.heading}
+          tabIndex={0}
+          onKeyDown={(e) => {
+            if (e.key === "ArrowRight") go(index + (rtl ? -1 : 1));
+            if (e.key === "ArrowLeft") go(index + (rtl ? 1 : -1));
+          }}
+        >
+          <article className={`case case--enter${index % 2 ? " case--flip" : ""}`} key={project.title} aria-live="polite">
+            <a
+              className={`case__shot${project.image ? "" : " case__shot--none"}`}
+              href={project.live || project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              tabIndex={-1}
+              aria-hidden="true"
+            >
+              {project.image ? <img src={project.image} alt="" /> : <span>{project.title}</span>}
+            </a>
+            <div className="case__body">
+              <p className="case__no">
+                {pad(index + 1)} / {repo?.language}
               </p>
-
-              <div className="mt-4 flex flex-wrap gap-2">
-                {(repoByName[project.title]?.tags ?? []).slice(0, FEATURED_TAG_LIMIT).map((id) => (
-                  <button
-                    key={id}
-                    type="button"
-                    onClick={() => onTagClick?.(id)}
-                    title={t.projects.searchTag}
-                    className="text-sm bg-purple-600/20 hover:bg-purple-600/50 text-white px-3 py-1 rounded-lg transition"
-                  >
+              <h3>{project.title.replace(/-/g, " ")}</h3>
+              <p className="case__lede">{t.projects.descriptions[project.title]}</p>
+              <div className="s-chips">
+                {(repo?.tags ?? []).slice(0, CHIP_LIMIT).map((id) => (
+                  <button type="button" className="s-chip" key={id} title={t.projects.searchTag} onClick={() => onTagClick?.(id)}>
                     {TAGS[id].label}
                   </button>
                 ))}
               </div>
-
-              <div className="mt-5 flex items-center gap-4">
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-purple-300 hover:text-white transition"
-                >
-                  <FaGithub className="w-5 h-5" /> {t.projects.code}
+              <div className="case__links">
+                <a className="case__go" href={project.github} target="_blank" rel="noopener noreferrer">
+                  {t.projects.code} <span aria-hidden="true">↗</span>
                 </a>
                 {project.live && (
-                  <a
-                    href={project.live}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-purple-300 hover:text-white transition"
-                  >
-                    <FaExternalLinkAlt className="w-4 h-4" /> {t.projects.live}
+                  <a className="case__go case__go--accent" href={project.live} target="_blank" rel="noopener noreferrer">
+                    {t.projects.live} <span aria-hidden="true">↗</span>
                   </a>
                 )}
               </div>
             </div>
+          </article>
 
-            <div className="w-full md:w-1/2 grid grid-cols-1 gap-4 mt-6 md:mt-0">
-              <div className="bg-gray-800/30 rounded-lg overflow-hidden flex items-center justify-center min-h-[160px]">
-                {project.image ? (
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                  />
-                ) : (
-                  <FaImage className="w-10 h-10 text-purple-300/30" />
-                )}
-              </div>
+          <div className="carousel__nav">
+            <button type="button" className="carousel__btn" onClick={() => go(index - 1)} disabled={index === 0} aria-label={t.projects.prev}>
+              <Chevron dir="prev" />
+            </button>
+            <span className="carousel__count" dir="ltr">
+              {pad(index + 1)} / {pad(projects.length)}
+            </span>
+            <button type="button" className="carousel__btn" onClick={() => go(index + 1)} disabled={index === projects.length - 1} aria-label={t.projects.next}>
+              <Chevron dir="next" />
+            </button>
+            <div className="carousel__dots">
+              {projects.map((p, i) => (
+                <button type="button" key={p.title} aria-label={p.title} aria-current={i === index} onClick={() => go(i)} />
+              ))}
             </div>
-          </Reveal>
-        ))}
+          </div>
+        </div>
       </div>
     </section>
   );

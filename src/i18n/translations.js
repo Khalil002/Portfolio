@@ -8,6 +8,7 @@ export const languages = [
 export const translations = {
   en: {
     nav: {
+      experience: "Experience",
       about: "About",
       skills: "Skills",
       projects: "Projects",
@@ -16,6 +17,7 @@ export const translations = {
       resume: "Resume",
     },
     hero: {
+      seeWork: "See the work",
       greeting: "Hi, I am",
       title: "Full-Stack Software Engineer",
       tagline:
@@ -25,11 +27,16 @@ export const translations = {
       searchRepos: "Search my repos",
     },
     about: {
-      heading: "About Me",
-      text: "I'm a full-stack software engineer currently pursuing a Master's degree in Computer Science and Engineering at Politecnico di Milano. I define myself as a dedicated person towards developing new technological solutions, open to new challenges to grow as a person and a professional. From building web apps, mobile apps, APIs to training machine learning models, I enjoy tackling problems across the whole stack.",
+      heading: "Hi there!",
+      text: [
+        "I'm currently pursuing a Master's degree in Computer Science and Engineering at Politecnico di Milano.",
+        "I'm a dedicated and curious person who enjoys solving problems and learning new things. I'm always willing to step outside my comfort zone, take on new challenges, and keep growing both personally and professionally.",
+        "I speak four languages: English, Spanish, Arabic and Italian.",
+        "I build anything from web apps to ML models, and I love to explore what the field of computer science has to offer.",
+      ],
     },
     skills: {
-      heading: "Skills",
+      heading: "What I build with",
       categories: {
         "Programming Languages": "Programming Languages",
         Frameworks: "Frameworks",
@@ -38,7 +45,9 @@ export const translations = {
       },
     },
     projects: {
-      heading: "Projects",
+      prev: "Previous project",
+      next: "Next project",
+      heading: "Featured Projects",
       code: "Code",
       live: "Live",
       searchTag: "Search repos with this tag",
@@ -58,8 +67,10 @@ export const translations = {
       },
     },
     resume: {
+      showDetails: "Show details",
+      hideDetails: "Hide details",
       heading: "Resume",
-      experience: "Experience",
+      experience: "Work Experience",
       education: "Education",
     },
     search: {
@@ -90,17 +101,24 @@ export const translations = {
       },
     },
     contact: {
+      headline: "Let's build something.",
+      sub: "I'm open to new roles and collaborations. The quickest way to reach me is email.",
       heading: "Contact Me",
       email: "Email",
       linkedin: "LinkedIn",
       github: "GitHub",
     },
     footer: "Built with React & Tailwind CSS.",
-    misc: { toggleMenu: "Toggle menu", language: "Language" },
+    misc: {
+      backToTop: "Back to top",
+      toggleMenu: "Toggle menu",
+      language: "Language",
+    },
   },
 
   es: {
     nav: {
+      experience: "Experiencia",
       about: "Sobre mí",
       skills: "Habilidades",
       projects: "Proyectos",
@@ -109,6 +127,7 @@ export const translations = {
       resume: "CV",
     },
     hero: {
+      seeWork: "Ver proyectos",
       greeting: "Hola, soy",
       title: "Ingeniero de Software Full-Stack",
       tagline:
@@ -118,11 +137,16 @@ export const translations = {
       searchRepos: "Buscar mis repos",
     },
     about: {
-      heading: "Sobre mí",
-      text: "Soy un ingeniero de software full-stack que actualmente cursa una Maestría en Ciencias de la Computación e Ingeniería en el Politecnico di Milano. Me defino como una persona dedicada al desarrollo de nuevas soluciones tecnológicas, abierta a nuevos desafíos para crecer como persona y como profesional. Desde construir aplicaciones web y móviles y APIs, hasta entrenar modelos de machine learning, disfruto abordando problemas en toda la pila tecnológica.",
+      heading: "¡Hola!",
+      text: [
+        "Actualmente curso una Maestría en Ciencias de la Computación e Ingeniería en el Politecnico di Milano.",
+        "Soy una persona dedicada y curiosa, que disfruta resolviendo problemas y aprendiendo cosas nuevas. Siempre estoy dispuesto a salir de mi zona de confort, asumir nuevos desafíos y seguir creciendo tanto personal como profesionalmente.",
+        "Hablo cuatro idiomas: inglés, español, árabe e italiano.",
+        "Construyo de todo, desde aplicaciones web hasta modelos de ML, y me encanta explorar todo lo que la informática tiene para ofrecer.",
+      ],
     },
     skills: {
-      heading: "Habilidades",
+      heading: "Con qué construyo",
       categories: {
         "Programming Languages": "Lenguajes de Programación",
         Frameworks: "Frameworks",
@@ -131,7 +155,9 @@ export const translations = {
       },
     },
     projects: {
-      heading: "Proyectos",
+      prev: "Proyecto anterior",
+      next: "Proyecto siguiente",
+      heading: "Proyectos destacados",
       code: "Código",
       live: "En vivo",
       searchTag: "Buscar repos con esta etiqueta",
@@ -151,8 +177,10 @@ export const translations = {
       },
     },
     resume: {
+      showDetails: "Ver detalles",
+      hideDetails: "Ocultar detalles",
       heading: "Currículum",
-      experience: "Experiencia",
+      experience: "Experiencia laboral",
       education: "Educación",
     },
     search: {
@@ -183,17 +211,24 @@ export const translations = {
       },
     },
     contact: {
+      headline: "Construyamos algo.",
+      sub: "Estoy abierto a nuevas oportunidades y colaboraciones. La forma más rápida de contactarme es por correo.",
       heading: "Contáctame",
       email: "Correo",
       linkedin: "LinkedIn",
       github: "GitHub",
     },
     footer: "Construido con React y Tailwind CSS.",
-    misc: { toggleMenu: "Alternar menú", language: "Idioma" },
+    misc: {
+      backToTop: "Volver arriba",
+      toggleMenu: "Alternar menú",
+      language: "Idioma",
+    },
   },
 
   ar: {
     nav: {
+      experience: "الخبرة",
       about: "نبذة عني",
       skills: "المهارات",
       projects: "المشاريع",
@@ -202,8 +237,9 @@ export const translations = {
       resume: "السيرة الذاتية",
     },
     hero: {
+      seeWork: "شاهد أعمالي",
       greeting: "مرحباً، أنا",
-      title: "مهندس برمجيات متكامل (Full-Stack)",
+      title: "مهندس برمجيات متكامل",
       tagline:
         "متمكّن في تطوير واجهات برمجة التطبيقات وخوارزميات تعلّم الآلة. شغوف بتطوير الويب، والذكاء الاصطناعي، والحوسبة السحابية.",
       downloadResume: "تحميل السيرة الذاتية",
@@ -211,11 +247,16 @@ export const translations = {
       searchRepos: "ابحث في مستودعاتي",
     },
     about: {
-      heading: "نبذة عني",
-      text: "أنا مهندس برمجيات متكامل أتابع حالياً درجة الماجستير في علوم وهندسة الحاسوب في جامعة بوليتكنيكو دي ميلانو. أعرّف نفسي بأنني شخص ملتزم بتطوير حلول تكنولوجية جديدة، ومنفتح على تحديات جديدة للنمو كشخص ومحترف. من بناء تطبيقات الويب والهاتف المحمول وواجهات البرمجة، إلى تدريب نماذج تعلّم الآلة، أستمتع بمواجهة المشكلات عبر كامل مكونات التطوير.",
+      heading: "مرحباً!",
+      text: [
+        "أتابع حالياً درجة الماجستير في علوم وهندسة الحاسوب في جامعة بوليتكنيكو دي ميلانو.",
+        "أنا شخص مثابر وفضولي، أستمتع بحل المشكلات وتعلّم أشياء جديدة. أنا مستعد دائماً للخروج من منطقة راحتي ومواجهة تحديات جديدة والاستمرار في النمو على الصعيدين الشخصي والمهني.",
+        "أتحدث أربع لغات: الإنجليزية والإسبانية والعربية والإيطالية.",
+        "أبني كل شيء، من تطبيقات الويب إلى نماذج تعلّم الآلة، وأحب استكشاف كل ما يقدمه مجال علوم الحاسوب.",
+      ],
     },
     skills: {
-      heading: "المهارات",
+      heading: "ما أبني به",
       categories: {
         "Programming Languages": "لغات البرمجة",
         Frameworks: "أطر العمل",
@@ -224,7 +265,9 @@ export const translations = {
       },
     },
     projects: {
-      heading: "المشاريع",
+      prev: "المشروع السابق",
+      next: "المشروع التالي",
+      heading: "مشاريع مختارة",
       code: "الكود",
       live: "معاينة مباشرة",
       searchTag: "ابحث عن المستودعات بهذا الوسم",
@@ -244,8 +287,10 @@ export const translations = {
       },
     },
     resume: {
+      showDetails: "عرض التفاصيل",
+      hideDetails: "إخفاء التفاصيل",
       heading: "السيرة الذاتية",
-      experience: "الخبرة",
+      experience: "الخبرة العملية",
       education: "التعليم",
     },
     search: {
@@ -276,17 +321,24 @@ export const translations = {
       },
     },
     contact: {
+      headline: "لنبنِ شيئاً معاً.",
+      sub: "أنا منفتح على فرص عمل وتعاون جديدة. أسرع طريقة للتواصل معي هي البريد الإلكتروني.",
       heading: "تواصل معي",
       email: "البريد الإلكتروني",
       linkedin: "لينكدإن",
       github: "غيتهب",
     },
     footer: "تم البناء باستخدام React وTailwind CSS.",
-    misc: { toggleMenu: "القائمة", language: "اللغة" },
+    misc: {
+      backToTop: "العودة إلى الأعلى",
+      toggleMenu: "القائمة",
+      language: "اللغة",
+    },
   },
 
   it: {
     nav: {
+      experience: "Esperienza",
       about: "Chi sono",
       skills: "Competenze",
       projects: "Progetti",
@@ -295,6 +347,7 @@ export const translations = {
       resume: "CV",
     },
     hero: {
+      seeWork: "Guarda i progetti",
       greeting: "Ciao, sono",
       title: "Ingegnere Software Full-Stack",
       tagline:
@@ -304,11 +357,16 @@ export const translations = {
       searchRepos: "Cerca nei miei repo",
     },
     about: {
-      heading: "Chi sono",
-      text: "Sono un ingegnere software full-stack, attualmente iscritto a una Laurea Magistrale in Ingegneria Informatica presso il Politecnico di Milano. Mi definisco una persona dedita allo sviluppo di nuove soluzioni tecnologiche, aperta a nuove sfide per crescere sia come persona che come professionista. Dalla costruzione di applicazioni web e mobile, alle API, fino all'addestramento di modelli di machine learning, mi piace affrontare problemi lungo l'intero stack tecnologico.",
+      heading: "Ciao!",
+      text: [
+        "Attualmente frequento la Laurea Magistrale in Computer Science and Engineering al Politecnico di Milano.",
+        "Sono una persona determinata e curiosa, che ama risolvere problemi e imparare cose nuove. Sono sempre pronto a uscire dalla mia zona di comfort, ad affrontare nuove sfide e a continuare a crescere sia sul piano personale che professionale.",
+        "Parlo quattro lingue: inglese, spagnolo, arabo e italiano.",
+        "Costruisco di tutto, dalle web app ai modelli di ML, e adoro esplorare tutto ciò che l'informatica ha da offrire.",
+      ],
     },
     skills: {
-      heading: "Competenze",
+      heading: "Con cosa costruisco",
       categories: {
         "Programming Languages": "Linguaggi di Programmazione",
         Frameworks: "Framework",
@@ -317,7 +375,9 @@ export const translations = {
       },
     },
     projects: {
-      heading: "Progetti",
+      prev: "Progetto precedente",
+      next: "Progetto successivo",
+      heading: "Progetti in evidenza",
       code: "Codice",
       live: "Live",
       searchTag: "Cerca repo con questo tag",
@@ -337,8 +397,10 @@ export const translations = {
       },
     },
     resume: {
+      showDetails: "Mostra dettagli",
+      hideDetails: "Nascondi dettagli",
       heading: "Curriculum",
-      experience: "Esperienza",
+      experience: "Esperienza lavorativa",
       education: "Formazione",
     },
     search: {
@@ -369,12 +431,18 @@ export const translations = {
       },
     },
     contact: {
+      headline: "Costruiamo qualcosa.",
+      sub: "Sono aperto a nuove opportunità e collaborazioni. Il modo più rapido per contattarmi è via email.",
       heading: "Contattami",
       email: "Email",
       linkedin: "LinkedIn",
       github: "GitHub",
     },
     footer: "Realizzato con React e Tailwind CSS.",
-    misc: { toggleMenu: "Menu", language: "Lingua" },
+    misc: {
+      backToTop: "Torna su",
+      toggleMenu: "Menu",
+      language: "Lingua",
+    },
   },
 };
